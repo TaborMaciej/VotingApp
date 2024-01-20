@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Voter.Partia.PotwierdzenieWyboru">
+    tools:context=".Voter.Sejm.PotwierdzenieWyboru">
 
     <TextView
         android:id="@+id/textView7"
@@ -43,6 +43,7 @@
         android:id="@+id/SurnameTextView"
         android:layout_width="230dp"
         android:layout_height="60dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="130dp"
         android:text=" nazwisko"
         android:textAlignment="textStart"
@@ -61,23 +62,23 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/PowrotKandydaciBtn"
+        android:id="@+id/PotwierdzenieBtn"
         android:layout_width="367dp"
         android:layout_height="99dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="200dp"
-        android:text="Wróć do listy kandydatów"
+        android:text="Potwierdzam wybór kandydata na posła RP"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DescriptionTextView" />
 
     <Button
-        android:id="@+id/PotwierdzenieBtn"
+        android:id="@+id/PowrotKandydaciBtn"
         android:layout_width="349dp"
         android:layout_height="99dp"
         android:layout_marginStart="200dp"
         android:layout_marginTop="65dp"
-        android:text="Potwierdzam wybór kandydata na posła RP"
+        android:text="Wróć do listy kandydatów"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

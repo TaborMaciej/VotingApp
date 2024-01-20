@@ -31,21 +31,18 @@ public class AdapterSejm extends RecyclerView.Adapter<MyViewHolderSejm> {
     @NonNull
     @Override
     public MyViewHolderSejm onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("AdapterSejm", "onCreateViewHolder called"); // Add this line for logging
         View itemView = LayoutInflater.from(context).inflate(R.layout.partia_view, parent, false);
         final MyViewHolderSejm viewHolder = new MyViewHolderSejm(itemView);
         itemView.setOnClickListener(v -> {
             int pos = viewHolder.getAdapterPosition();
-            if (pos != RecyclerView.NO_POSITION) {
+            if (pos != RecyclerView.NO_POSITION)
                 recyclerViewInterface.OnItemCLick(pos);
-            }
         });
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderSejm holder, int position) {
-        Log.d("KomitetName" + position, komitetList.get(position).Nazwa);
         holder.nameView.setText(komitetList.get(position).Nazwa);
         holder.imageView1.setImageResource(komitetList.get(position).LogoNazwa);
         holder.imageView2.setImageResource(komitetList.get(position).LogoNazwa);

@@ -43,10 +43,9 @@ public class WyborKandydata extends AppCompatActivity {
 
         String idKomitet = this.getIntent().getExtras().getString("ID_komitetu");
         List<KandydatModel> items = DBController.getInstance(this).getKandydaciSejm(idKomitet);
-        //List<KandydatModel> items = DBController.getInstance(this).getKandydaci();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new AdapterKandydat(getApplicationContext(),items));
+        recyclerView.setAdapter(new AdapterKandydat(getApplicationContext(),items, this.getIntent().getExtras()));
     }
 
     private void setupKomitetsView(){

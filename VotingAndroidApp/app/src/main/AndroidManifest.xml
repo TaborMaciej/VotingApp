@@ -15,6 +15,12 @@
         android:theme="@style/Theme.VotingApp"
         tools:targetApi="31">
         <activity
+            android:name=".Voter.Sejm.PotwierdzenieWyboru"
+            android:exported="false" />
+        <activity
+            android:name=".Voter.Sejm.PonownePotwierdzenieKodu"
+            android:exported="false" />
+        <activity
             android:name=".Voter.Sejm.WyborListyWyborczej"
             android:exported="false" />
         <activity
