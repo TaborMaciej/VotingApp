@@ -48,3 +48,4 @@ VotingWebApp/.vs/VotingWebApp/v17/.suo
 *.editorconfig
 VotingWebApp/bin/Debug/net6.0/VotingWebApp.exe
 VotingWebApp/bin/Debug/net6.0/VotingWebApp.dll
+*.v2
