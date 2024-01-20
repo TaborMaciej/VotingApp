@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - VotingWebApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/VotingWebApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+
+                <ul class="navbar-nav d-flex justify-content-center align-content-center">
+                    <li class="nav-item"><a class="nav-link text-white" asp-controller="Home" asp-action="Index">Home</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="CzlonekKomisji" asp-action="Index">Członkowie komisji</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Glosujacy" asp-action="Index">Osoby głosujące</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Kandydat" asp-action="Index">Kandydaci</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Komitet" asp-action="Index">Komitety</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Obwod" asp-action="Index">Obwody</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" asp-controller="Okreg" asp-action="Index">Okręgi wyborcze</a></li>
+                    }
+                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form asp-controller="Home" asp-action="Logout" method="post">
+                        <input type="submit" class="btn btn-primary text-white text-center align-self-center" value="Wyloguj się" />
+                    </form>
+                }
+
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - VotingWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
