@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
             new CheckCodeTask().execute();
         });
-        
+
     }
 
     class CheckCodeTask extends AsyncTask<String, Void, Boolean> {

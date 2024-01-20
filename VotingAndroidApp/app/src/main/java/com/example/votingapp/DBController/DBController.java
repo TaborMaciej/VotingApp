@@ -236,8 +236,9 @@ public class DBController extends SQLiteOpenHelper {
         }
         return lista;
     }
-    public ArrayList<KandydatModel> getKandydaciSejm(int nrListy){
-        Cursor cursor = dbReference.query("", null, null, null, null, null, null);
+    public ArrayList<KandydatModel> getKandydaciSejm(String ID_partii){
+        Cursor cursor = dbReference.query(TABLE_NAME_KANDYDAT, null,
+                "IDKomitetu=? and czy_senat=?", new String[]{ID_partii, "1"}, null, null, null);
 
         ArrayList<KandydatModel> lista = new ArrayList<>();
         if (cursor != null && cursor.moveToFirst()) {

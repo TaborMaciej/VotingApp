@@ -44,7 +44,7 @@ namespace VotingWebApp.Controllers
         // GET: CzlonekKomisji/Create
         public IActionResult Create()
         {
-            ViewData["IDObwod"] = new SelectList(_context.Obwody, "ID", "ID");
+            ViewData["IDObwod"] = new SelectList(_context.Obwody.Select(s => new { ID = s.ID, Name= s.NazwaObwodu}), "ID", "Name");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace VotingWebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDObwod"] = new SelectList(_context.Obwody, "ID", "ID", czlonekKomisji.IDObwod);
+            ViewData["IDObwod"] = new SelectList(_context.Obwody.Select(s => new { ID = s.ID, Name = s.NazwaObwodu }), "ID", "Name");
             return View(czlonekKomisji);
         }
 
@@ -78,7 +78,7 @@ namespace VotingWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDObwod"] = new SelectList(_context.Obwody, "ID", "ID", czlonekKomisji.IDObwod);
+            ViewData["IDObwod"] = new SelectList(_context.Obwody.Select(s => new { ID = s.ID, Name = s.NazwaObwodu }), "ID", "Name");
             return View(czlonekKomisji);
         }
 
@@ -114,7 +114,7 @@ namespace VotingWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDObwod"] = new SelectList(_context.Obwody, "ID", "ID", czlonekKomisji.IDObwod);
+            ViewData["IDObwod"] = new SelectList(_context.Obwody.Select(s => new { ID = s.ID, Name = s.NazwaObwodu }), "ID", "Name");
             return View(czlonekKomisji);
         }
 
