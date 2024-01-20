@@ -36,8 +36,8 @@ public class PotwierdzenieWyboru extends AppCompatActivity {
         });
 
         ((TextView) findViewById(R.id.DescriptionTextView)).setText(data.getString("OpisKandydataSejmu"));
-        ((TextView) findViewById(R.id.NameTextView)).setText(data.getString("ImieKandydataSejmu"));
-        ((TextView) findViewById(R.id.SurnameTextView)).setText(data.getString("NazwiskoKandydataSejmu"));
+        ((TextView) findViewById(R.id.NameTextView))
+                .setText(String.format("%s %s", data.getString("ImieKandydataSejmu"), data.getString("NazwiskoKandydataSejmu")));
         ((ImageView) findViewById(R.id.imageView)).setImageResource(data.getInt("ZdjecieKandydataSejmu"));
     }
 }

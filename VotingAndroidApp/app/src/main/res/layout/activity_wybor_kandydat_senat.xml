@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="1273dp"
-        android:layout_height="165dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Wybierz Kandydata"
         android:textAlignment="center"
@@ -22,39 +22,116 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="817dp"
-        android:layout_height="61dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Można wybrać tylko JEDNEGO kandydata"
         android:textAlignment="center"
-        android:textSize="48sp"
+        android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ListaKandydatowSenatu"
-        android:layout_width="1267dp"
-        android:layout_height="406dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/PowrotSenatBtn"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <ImageView
+            android:id="@+id/ZdjeciePartiA"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="8dp"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/NazwaPartiiA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:text="Nazwa Partii"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ZdjecieParti2"
+            app:layout_constraintStart_toEndOf="@+id/ZdjecieParti"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ListaKandydatow"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListaKandydatow">
+
+        <ImageView
+            android:id="@+id/ZdjeciePartiA1"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="8dp"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/NazwaPartiiA1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:text="Nazwa Partii"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="56dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ZdjecieParti2"
+            app:layout_constraintStart_toEndOf="@+id/ZdjecieParti"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/PowrotSenatBtn"
-        android:layout_width="650dp"
-        android:layout_height="150dp"
-        android:text="Powrot do wyboru Senatu"
-        android:textSize="34sp"
+        android:id="@+id/PowrotBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="256dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:text="Powrot do wyboru Komitetu"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListaKandydatowSenatu" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
