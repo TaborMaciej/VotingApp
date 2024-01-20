@@ -96,12 +96,13 @@ namespace VotingWebApp.Controllers
             var result = new
             {
                 Komitet = _context.Komitety.Select(k => new
-                {
-                    ID = k.ID,
-                    Nazwa = k.Nazwa,
-                    LogoNazwa = k.LogoNazwa,
-                    NrListy = k.NrListy
-                }).ToList(),
+                    {
+                        ID = k.ID,
+                        Nazwa = k.Nazwa,
+                        LogoNazwa = k.LogoNazwa,
+                        NrListy = k.NrListy
+                    }).ToList(),
+
                 Kandydaci = _context.Kandydaci
                     .Include(p => p.Komitet)
                     .Include(p => p.Okreg)

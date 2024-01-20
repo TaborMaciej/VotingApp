@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
             new CheckCodeTask().execute();
         });
+        
     }
 
     class CheckCodeTask extends AsyncTask<String, Void, Boolean> {
@@ -194,16 +195,27 @@ public class MainActivity extends AppCompatActivity {
                     model.ID = arrayKandydat.getJSONObject(i).getString("ID");
                     model.Imie = arrayKandydat.getJSONObject(i).getString("Imie");
                     model.Nazwisko = arrayKandydat.getJSONObject(i).getString("Nazwisko");
-                    model.Zdjecie = R.drawable.cat;
+                    if(model.Imie.endsWith("a"))
+                        model.Zdjecie = R.drawable.woman_person;
+                    else
+                        model.Zdjecie = R.drawable.man_person;
                     model.Opis = arrayKandydat.getJSONObject(i).getString("Opis");
                     model.czySenat = arrayKandydat.getJSONObject(i).getBoolean("czySenat");
                     model.Nr_listy = arrayKandydat.getJSONObject(i).getInt("NrListy");
                     model.IDKomitetu = arrayKandydat.getJSONObject(i).getString("IDKomitetu");
-                    model.IDokreg = arrayKandydat.getJSONObject(i).getString("IDokregu");
+                    model.IDokreg = arrayKandydat.getJSONObject(i).getString("IDokreg");
                     model.Okreg = arrayKandydat.getJSONObject(i).getString("NazwaOkregu");
                     DBController.getInstance(getBaseContext()).insertKandydat(model);
                 }
 
+                for(int i = 0; i < arrayKomitet.length(); i++){
+                    KomitetModel model = new KomitetModel();
+                    model.ID = arrayKomitet.getJSONObject(i).getString("ID");
+                    model.Nazwa = arrayKomitet.getJSONObject(i).getString("Nazwa");
+                    model.LogoNazwa = R.drawable.partia;
+                    model.Nrlisty = arrayKomitet.getJSONObject(i).getInt("NrListy");
+                    DBController.getInstance(getBaseContext()).insertKomitet(model);
+                }
             } catch (JSONException | NullPointerException e) {
                 Log.d("ErrConnect", e.toString());
             }
