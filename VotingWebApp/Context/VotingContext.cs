@@ -17,6 +17,18 @@ namespace VotingWebApp.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UniqueCode>().HasIndex(c => c.Code).IsUnique();
+
+            modelBuilder.Entity<Kandydat>()
+                .HasMany(k => k.UniqueCodeSejm)
+                .WithOne(u => u.KandydatSejmu)
+                .HasForeignKey(u => u.IDKandydataSejmu)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Kandydat>()
+                .HasMany(k => k.UniqueCodeSenat)
+                .WithOne(u => u.KandydatSenatu)
+                .HasForeignKey(u => u.IDKandydataSenatu)
+                .OnDelete(DeleteBehavior.Restrict); 
         }
 
     }
