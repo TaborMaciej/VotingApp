@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="IDObwod" class="control-label"></label>
-                <select asp-for="IDObwod" class ="form-control" asp-items="ViewBag.IDObwod"></select>
+                <select asp-for="IDObwod" class="form-control" asp-items="ViewBag.IDObwod"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -48,5 +48,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

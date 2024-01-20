@@ -32,7 +32,7 @@ namespace VotingWebApp.Controllers
             newCode.Code = randomString;
             newCode.wasUsed = false;
             _context.Add(newCode);
-            await _context.SaveChangesAsync(); 
+            await _context.SaveChangesAsync();
             return View(newCode);
 
         }
@@ -105,7 +105,7 @@ namespace VotingWebApp.Controllers
                 Opis = k.Opis,
                 NrListy = k.Komitet.NrListy,
                 NazwaOkregu = k.Okreg.Nazwa,
-                czySenat = k.czySenat       
+                czySenat = k.czySenat
             })
             .ToList();
 

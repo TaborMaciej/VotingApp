@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VotingWebApp.Context;
 using VotingWebApp.Models;
@@ -24,9 +19,9 @@ namespace VotingWebApp.Controllers
         // GET: Komitet
         public async Task<IActionResult> Index()
         {
-              return _context.Komitety != null ? 
-                          View(await _context.Komitety.ToListAsync()) :
-                          Problem("Entity set 'VotingContext.Komitety'  is null.");
+            return _context.Komitety != null ?
+                        View(await _context.Komitety.ToListAsync()) :
+                        Problem("Entity set 'VotingContext.Komitety'  is null.");
         }
 
         // GET: Komitet/Details/5
@@ -58,7 +53,7 @@ namespace VotingWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nazwa,LogoNazwa,NrListy")] Komitet komitet)
+        public async Task<IActionResult> Create([Bind("ID,Nazwa,NrListy")] Komitet komitet)
         {
             if (ModelState.IsValid)
             {
@@ -152,14 +147,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.Komitety.Remove(komitet);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool KomitetExists(Guid? id)
         {
-          return (_context.Komitety?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.Komitety?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

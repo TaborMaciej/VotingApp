@@ -12,8 +12,8 @@ using VotingWebApp.Context;
 namespace VotingWebApp.Migrations
 {
     [DbContext(typeof(VotingContext))]
-    [Migration("20240115013810_start")]
-    partial class start
+    [Migration("20240120113414_new db")]
+    partial class newdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,6 +122,9 @@ namespace VotingWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("czySenat")
+                        .HasColumnType("bit");
+
                     b.HasKey("ID");
 
                     b.HasIndex("IDKomitetu");
@@ -200,10 +203,16 @@ namespace VotingWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid?>("IDKandydata")
+                    b.Property<Guid?>("IDKandydataSejmu")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("IDKomitetu")
+                    b.Property<Guid?>("IDKandydataSenatu")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("KandydatSejmID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("KomitetSenatID")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("wasUsed")
@@ -214,9 +223,9 @@ namespace VotingWebApp.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.HasIndex("IDKandydata");
+                    b.HasIndex("KandydatSejmID");
 
-                    b.HasIndex("IDKomitetu");
+                    b.HasIndex("KomitetSenatID");
 
                     b.ToTable("UniqueCodes");
                 });
@@ -253,17 +262,17 @@ namespace VotingWebApp.Migrations
 
             modelBuilder.Entity("VotingWebApp.Models.UniqueCode", b =>
                 {
-                    b.HasOne("VotingWebApp.Models.Kandydat", "Kandydat")
+                    b.HasOne("VotingWebApp.Models.Kandydat", "KandydatSejm")
                         .WithMany("UniqueCode")
-                        .HasForeignKey("IDKandydata");
+                        .HasForeignKey("KandydatSejmID");
 
-                    b.HasOne("VotingWebApp.Models.Komitet", "Komitet")
+                    b.HasOne("VotingWebApp.Models.Komitet", "KomitetSenat")
                         .WithMany("UniqueCode")
-                        .HasForeignKey("IDKomitetu");
+                        .HasForeignKey("KomitetSenatID");
 
-                    b.Navigation("Kandydat");
+                    b.Navigation("KandydatSejm");
 
-                    b.Navigation("Komitet");
+                    b.Navigation("KomitetSenat");
                 });
 
             modelBuilder.Entity("VotingWebApp.Models.Kandydat", b =>

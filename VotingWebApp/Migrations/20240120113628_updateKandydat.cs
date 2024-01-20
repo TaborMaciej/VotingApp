@@ -5,24 +5,24 @@
 namespace VotingWebApp.Migrations
 {
     /// <inheritdoc />
-    public partial class czySenat : Migration
+    public partial class updateKandydat : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "czySenat",
+            migrationBuilder.AddColumn<int>(
+                name: "nrListy",
                 table: "Kandydaci",
-                type: "bit",
+                type: "int",
                 nullable: false,
-                defaultValue: false);
+                defaultValue: 0);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "czySenat",
+                name: "nrListy",
                 table: "Kandydaci");
         }
     }

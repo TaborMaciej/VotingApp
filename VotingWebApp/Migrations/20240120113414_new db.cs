@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace VotingWebApp.Migrations
 {
     /// <inheritdoc />
-    public partial class start : Migration
+    public partial class newdb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -100,6 +100,7 @@ namespace VotingWebApp.Migrations
                     Nazwisko = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Zdjecie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Opis = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    czySenat = table.Column<bool>(type: "bit", nullable: false),
                     IDKomitetu = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDOkregu = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -127,20 +128,22 @@ namespace VotingWebApp.Migrations
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Code = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     wasUsed = table.Column<bool>(type: "bit", nullable: false),
-                    IDKandydata = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    IDKomitetu = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    IDKandydataSejmu = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    KandydatSejmID = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    IDKandydataSenatu = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    KomitetSenatID = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UniqueCodes", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_UniqueCodes_Kandydaci_IDKandydata",
-                        column: x => x.IDKandydata,
+                        name: "FK_UniqueCodes_Kandydaci_KandydatSejmID",
+                        column: x => x.KandydatSejmID,
                         principalTable: "Kandydaci",
                         principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_UniqueCodes_Komitety_IDKomitetu",
-                        column: x => x.IDKomitetu,
+                        name: "FK_UniqueCodes_Komitety_KomitetSenatID",
+                        column: x => x.KomitetSenatID,
                         principalTable: "Komitety",
                         principalColumn: "ID");
                 });
@@ -167,14 +170,14 @@ namespace VotingWebApp.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_UniqueCodes_IDKandydata",
+                name: "IX_UniqueCodes_KandydatSejmID",
                 table: "UniqueCodes",
-                column: "IDKandydata");
+                column: "KandydatSejmID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UniqueCodes_IDKomitetu",
+                name: "IX_UniqueCodes_KomitetSenatID",
                 table: "UniqueCodes",
-                column: "IDKomitetu");
+                column: "KomitetSenatID");
         }
 
         /// <inheritdoc />

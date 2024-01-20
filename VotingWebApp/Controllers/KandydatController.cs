@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -61,7 +57,7 @@ namespace VotingWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Imie,Nazwisko,Zdjecie,Opis,czySenat,IDKomitetu,IDOkregu")] Kandydat kandydat)
+        public async Task<IActionResult> Create([Bind("ID,Imie,Nazwisko,Opis,czySenat,nrListy,IDKomitetu,IDOkregu")] Kandydat kandydat)
         {
             if (ModelState.IsValid)
             {
@@ -163,14 +159,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.Kandydaci.Remove(kandydat);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool KandydatExists(Guid? id)
         {
-          return (_context.Kandydaci?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.Kandydaci?.Any(e => e.ID == id)).GetValueOrDefault();
         }
 
     }

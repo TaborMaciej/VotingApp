@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VotingWebApp.Context;
 using VotingWebApp.Models;
@@ -22,9 +17,9 @@ namespace VotingWebApp.Controllers
         // GET: Glosujacy
         public async Task<IActionResult> Index()
         {
-              return _context.OsobyGlosujace != null ? 
-                          View(await _context.OsobyGlosujace.ToListAsync()) :
-                          Problem("Entity set 'VotingContext.OsobyGlosujace'  is null.");
+            return _context.OsobyGlosujace != null ?
+                        View(await _context.OsobyGlosujace.ToListAsync()) :
+                        Problem("Entity set 'VotingContext.OsobyGlosujace'  is null.");
         }
 
         // GET: Glosujacy/Details/5
@@ -150,14 +145,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.OsobyGlosujace.Remove(glosujacy);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool GlosujacyExists(Guid? id)
         {
-          return (_context.OsobyGlosujace?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.OsobyGlosujace?.Any(e => e.ID == id)).GetValueOrDefault();
         }
 
         [HttpPost]

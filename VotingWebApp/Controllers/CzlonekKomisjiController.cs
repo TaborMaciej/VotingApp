@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using VotingWebApp.Context;
@@ -156,14 +151,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.CzlonkowieKomisji.Remove(czlonekKomisji);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CzlonekKomisjiExists(Guid? id)
         {
-          return (_context.CzlonkowieKomisji?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.CzlonkowieKomisji?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
