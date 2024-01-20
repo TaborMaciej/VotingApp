@@ -37,10 +37,10 @@ public class WyborListyWyborczej extends AppCompatActivity implements RecyclerVi
     @Override
     public void OnItemCLick(int position) {
         Intent intent = new Intent(WyborListyWyborczej.this, WyborKandydata.class);
-        extras.putString("ID_komitetu", komitetLista.get(position).ID);
-        extras.putString("Nazwa_komitetu", komitetLista.get(position).Nazwa);
-        extras.putInt("ID_zdjecia_komitetu", komitetLista.get(position).LogoNazwa);
-        extras.putInt("nr_listy_komitetu", komitetLista.get(position).Nrlisty);
+        extras.putInt("ID_komitetu", komitetLista.get(position).ID);
+        extras.putString("Nazwa_komitetu", komitetLista.get(position).Name);
+        extras.putInt("ID_zdjecia_komitetu", komitetLista.get(position).Img);
+        extras.putInt("nr_listy_partii", komitetLista.get(position).Nr_listy);
         intent.putExtras(extras);
         startActivity(intent);
     }

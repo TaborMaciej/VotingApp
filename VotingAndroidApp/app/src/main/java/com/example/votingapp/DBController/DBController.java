@@ -28,17 +28,13 @@ public class DBController extends SQLiteOpenHelper {
     private static final String TABLE_NAME_CODE = "code_table";
     private static final String[] COLS_NAME_CODE = {
         "ID",
-        "Code",
-        "wasUsed",
-        "IDKanydatSejmu",
-        "IDKandydatSenatu"
+        "Name",
+        "wasUsed"
     };
     private static final String[] COLS_CODE = {
             "INTEGER PRIMARY KEY AUTOINCREMENT",
             "TEXT",
-            "INTEGER",
-            "TEXT",
-            "TEXT"
+            "INTEGER"
     };
 
     //USER TABLE
@@ -49,7 +45,7 @@ public class DBController extends SQLiteOpenHelper {
             "password"
     };
     private static final String[] COLS_USER = {
-            "TEXT",
+            "INTEGER PRIMARY KEY AUTOINCREMENT",
             "TEXT",
             "TEXT"
     };
@@ -58,12 +54,12 @@ public class DBController extends SQLiteOpenHelper {
     private static final String TABLE_NAME_KOMITET = "komitet_table";
     private static final String[] COLS_NAME_KOMITET = {
             "ID",
-            "Nazwa",
-            "Nrlisty",
+            "Name",
+            "Nr_listy",
             "Img"
     };
     private static final String[] COLS_KOMITET = {
-            "TEXT",
+            "INTEGER PRIMARY KEY AUTOINCREMENT",
             "TEXT",
             "INTEGER",
             "INTEGER"
@@ -73,27 +69,27 @@ public class DBController extends SQLiteOpenHelper {
     private static final String TABLE_NAME_KANDYDAT = "kandydat_table";
     private static final String[] COLS_NAME_KANDYDAT = {
             "ID",
-            "Imie",
-            "Nazwisko",
+            "Name",
+            "Surname",
             "Img",
-            "Opis",
+            "Desc",
+            "Nr_listy",
+            "okreg",
             "czy_senat",
-            "Nrlisty",
-            "IDKomitetu",
-            "IDOkregu",
-            "Okreg"
+            "ID_webserver",
+            "ID_partii"
     };
     private static final String[] COLS_KANDYDAT= {
-            "TEXT",
+            "INTEGER PRIMARY KEY AUTOINCREMENT",
             "TEXT",
             "TEXT",
             "INTEGER",
             "TEXT",
             "INTEGER",
+            "TEXT",
             "INTEGER",
             "TEXT",
-            "TEXT",
-            "TEXT"
+            "INTEGER"
     };
 
     public static synchronized DBController getInstance(Context context){
@@ -138,7 +134,6 @@ public class DBController extends SQLiteOpenHelper {
 
     public long insertUser(UserModel data){
         ContentValues x = new ContentValues();
-        x.put(COLS_NAME_USER[0], data.ID);
         x.put(COLS_NAME_USER[1], data.login);
         x.put(COLS_NAME_USER[2], data.password);
         return dbReference.insert(TABLE_NAME_USER, null, x);
@@ -146,32 +141,29 @@ public class DBController extends SQLiteOpenHelper {
 
     public long insertCode(CodeModel data){
         ContentValues x = new ContentValues();
-        x.put(COLS_NAME_CODE[1], data.Code);
+        x.put(COLS_NAME_CODE[1], data.Name);
         x.put(COLS_NAME_CODE[2], data.wasUsed);
         return dbReference.insert(TABLE_NAME_CODE, null, x);
     }
 
     public long insertKandydat(KandydatModel data){
         ContentValues x = new ContentValues();
-        x.put(COLS_NAME_KANDYDAT[0], data.ID);
-        x.put(COLS_NAME_KANDYDAT[1], data.Imie);
-        x.put(COLS_NAME_KANDYDAT[2], data.Nazwisko);
-        x.put(COLS_NAME_KANDYDAT[3], data.Zdjecie);
-        x.put(COLS_NAME_KANDYDAT[4], data.Opis);
-        x.put(COLS_NAME_KANDYDAT[5], data.czySenat);
-        x.put(COLS_NAME_KANDYDAT[6], data.Nr_listy);
-        x.put(COLS_NAME_KANDYDAT[7], data.IDKomitetu);
-        x.put(COLS_NAME_KANDYDAT[8], data.IDokreg);
-        x.put(COLS_NAME_KANDYDAT[9], data.Okreg);
+        x.put(COLS_NAME_KANDYDAT[1], data.Name);
+        x.put(COLS_NAME_KANDYDAT[2], data.Surname);
+        x.put(COLS_NAME_KANDYDAT[3], data.Img);
+        x.put(COLS_NAME_KANDYDAT[4], data.Desc);
+        x.put(COLS_NAME_KANDYDAT[5], data.Nr_listy);
+        x.put(COLS_NAME_KANDYDAT[6], data.Okreg);
+        x.put(COLS_NAME_KANDYDAT[7], data.czySenat);
+        x.put(COLS_NAME_KANDYDAT[8], data.Guid);
         return dbReference.insert(TABLE_NAME_KANDYDAT, null, x);
     }
 
     public long insertKomitet(KomitetModel data){
         ContentValues x = new ContentValues();
-        x.put(COLS_NAME_KOMITET[0], data.ID);
-        x.put(COLS_NAME_KOMITET[1], data.Nazwa);
-        x.put(COLS_NAME_KOMITET[2], data.Nrlisty);
-        x.put(COLS_NAME_KOMITET[3], data.LogoNazwa);
+        x.put(COLS_NAME_KOMITET[1], data.Name);
+        x.put(COLS_NAME_KOMITET[2], data.Nr_listy);
+        x.put(COLS_NAME_KOMITET[3], data.Img);
         return dbReference.insert(TABLE_NAME_KOMITET, null, x);
     }
 
@@ -199,10 +191,10 @@ public class DBController extends SQLiteOpenHelper {
                 if (index != -1) model.ID = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_CODE[1]);
-                if (index != -1) model.Code = cursor.getString(index);
+                if (index != -1) model.Name = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_CODE[2]);
-                if (index != -1) model.wasUsed = (cursor.getInt(index) != 0);
+                if (index != -1) model.wasUsed = cursor.getInt(index);
 
                 lista.add(model);
             } while (cursor.moveToNext());
@@ -222,7 +214,7 @@ public class DBController extends SQLiteOpenHelper {
                 int index;
 
                 index = cursor.getColumnIndex(COLS_NAME_USER[0]);
-                if (index != -1) model.ID = cursor.getString(index);
+                if (index != -1) model.ID = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_USER[1]);
                 if (index != -1) model.login = cursor.getString(index);
@@ -249,34 +241,31 @@ public class DBController extends SQLiteOpenHelper {
                 int index;
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[0]);
-                if (index != -1) model.ID = cursor.getString(index);
+                if (index != -1) model.ID = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[1]);
-                if (index != -1) model.Imie = cursor.getString(index);
+                if (index != -1) model.Name = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[2]);
-                if (index != -1) model.Nazwisko = cursor.getString(index);
+                if (index != -1) model.Surname = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[3]);
-                if (index != -1) model.Zdjecie = cursor.getInt(index);
+                if (index != -1) model.Img = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[4]);
-                if (index != -1) model.Opis  = cursor.getString(index);
+                if (index != -1) model.Desc = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[5]);
-                if (index != -1) model.czySenat = (cursor.getInt(index) != 0);
-
-                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[6]);
                 if (index != -1) model.Nr_listy = cursor.getInt(index);
 
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[6]);
+                if (index != -1) model.Okreg = cursor.getString(index);
+
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[7]);
-                if (index != -1) model.IDKomitetu = cursor.getString(index);
+                if (index != -1) model.czySenat = (cursor.getInt(index) != 0);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[8]);
-                if (index != -1) model.IDokreg = cursor.getString(index);
-
-                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[9]);
-                if (index != -1) model.Okreg = cursor.getString(index);
+                if (index != -1) model.Guid = cursor.getString(index);
 
                 lista.add(model);
             } while (cursor.moveToNext());
@@ -295,34 +284,31 @@ public class DBController extends SQLiteOpenHelper {
                 int index;
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[0]);
-                if (index != -1) model.ID = cursor.getString(index);
+                if (index != -1) model.ID = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[1]);
-                if (index != -1) model.Imie = cursor.getString(index);
+                if (index != -1) model.Name = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[2]);
-                if (index != -1) model.Nazwisko = cursor.getString(index);
+                if (index != -1) model.Surname = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[3]);
-                if (index != -1) model.Zdjecie = cursor.getInt(index);
+                if (index != -1) model.Img = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[4]);
-                if (index != -1) model.Opis  = cursor.getString(index);
+                if (index != -1) model.Desc = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[5]);
-                if (index != -1) model.czySenat = (cursor.getInt(index) != 0);
-
-                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[6]);
                 if (index != -1) model.Nr_listy = cursor.getInt(index);
 
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[6]);
+                if (index != -1) model.Okreg = cursor.getString(index);
+
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[7]);
-                if (index != -1) model.IDKomitetu = cursor.getString(index);
+                if (index != -1) model.czySenat = (cursor.getInt(index) != 0);
 
                 index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[8]);
-                if (index != -1) model.IDokreg = cursor.getString(index);
-
-                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[9]);
-                if (index != -1) model.Okreg = cursor.getString(index);
+                if (index != -1) model.Guid = cursor.getString(index);
 
                 lista.add(model);
             } while (cursor.moveToNext());
@@ -342,16 +328,16 @@ public class DBController extends SQLiteOpenHelper {
                 int index;
 
                 index = cursor.getColumnIndex(COLS_NAME_KOMITET[0]);
-                if (index != -1) model.ID = cursor.getString(index);
+                if (index != -1) model.ID = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KOMITET[1]);
-                if (index != -1) model.Nazwa = cursor.getString(index);
+                if (index != -1) model.Name = cursor.getString(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KOMITET[2]);
-                if (index != -1) model.Nrlisty = cursor.getInt(index);
+                if (index != -1) model.Nr_listy = cursor.getInt(index);
 
                 index = cursor.getColumnIndex(COLS_NAME_KOMITET[3]);
-                if (index != -1) model.LogoNazwa = cursor.getInt(index);
+                if (index != -1) model.Img = cursor.getInt(index);
 
                 lista.add(model);
             } while (cursor.moveToNext());

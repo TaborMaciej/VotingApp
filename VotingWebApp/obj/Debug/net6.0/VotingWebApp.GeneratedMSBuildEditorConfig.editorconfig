@@ -9,161 +9,161 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VotingWebApp
 build_property.RootNamespace = VotingWebApp
-build_property.ProjectDir = C:\Users\asasy\Studia\Mobilki\VotingApp_listakoncowa\VotingWebApp\
+build_property.ProjectDir = C:\Users\asasy\Studia\Mobilki\Lista_koncowa_VotingSystem\VotingWebApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\asasy\Studia\Mobilki\VotingApp_listakoncowa\VotingWebApp
+build_property.MSBuildProjectDirectory = C:\Users\asasy\Studia\Mobilki\Lista_koncowa_VotingSystem\VotingWebApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/CzlonekKomisji/Create.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/CzlonekKomisji/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3psb25la0tvbWlzamlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/CzlonekKomisji/Delete.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/CzlonekKomisji/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3psb25la0tvbWlzamlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/CzlonekKomisji/Details.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/CzlonekKomisji/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3psb25la0tvbWlzamlcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/CzlonekKomisji/Edit.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/CzlonekKomisji/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3psb25la0tvbWlzamlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/CzlonekKomisji/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/CzlonekKomisji/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3psb25la0tvbWlzamlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Glosujacy/Create.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Glosujacy/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2xvc3VqYWN5XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Glosujacy/Delete.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Glosujacy/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2xvc3VqYWN5XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Glosujacy/Details.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Glosujacy/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2xvc3VqYWN5XERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Glosujacy/Edit.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Glosujacy/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2xvc3VqYWN5XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Glosujacy/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Glosujacy/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2xvc3VqYWN5XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Home/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Home/Privacy.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Kandydat/Create.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Kandydat/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2FuZHlkYXRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Kandydat/Delete.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Kandydat/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2FuZHlkYXRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Kandydat/Details.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Kandydat/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2FuZHlkYXRcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Kandydat/Edit.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Kandydat/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2FuZHlkYXRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Kandydat/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Kandydat/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2FuZHlkYXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Komitet/Create.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Komitet/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29taXRldFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Komitet/Delete.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Komitet/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29taXRldFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Komitet/Details.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Komitet/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29taXRldFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Komitet/Edit.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Komitet/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29taXRldFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Komitet/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Komitet/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29taXRldFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Obwod/Create.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Obwod/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2J3b2RcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Obwod/Delete.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Obwod/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2J3b2RcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Obwod/Details.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Obwod/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2J3b2RcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Obwod/Edit.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Obwod/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2J3b2RcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Obwod/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Obwod/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2J3b2RcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Okreg/Create.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Okreg/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2tyZWdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Okreg/Delete.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Okreg/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2tyZWdcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Okreg/Details.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Okreg/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2tyZWdcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Okreg/Edit.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Okreg/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2tyZWdcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Okreg/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Okreg/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2tyZWdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Shared/Error.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/UniqueCode/Index.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/UniqueCode/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5pcXVlQ29kZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/_ViewImports.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/_ViewStart.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asasy/Studia/Mobilki/VotingApp_listakoncowa/VotingWebApp/Views/Shared/_Layout.cshtml]
+[C:/Users/asasy/Studia/Mobilki/Lista_koncowa_VotingSystem/VotingWebApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-osiosx2m6q

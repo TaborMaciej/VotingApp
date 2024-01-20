@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    /*class SychronizeDBTask extends AsyncTask<String, Void, JSONObject> {
+    class SychronizeDBTask extends AsyncTask<String, Void, JSONObject> {
         @Override
         protected JSONObject doInBackground(String... params){
             try {
@@ -236,5 +236,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-*/
+
 }
