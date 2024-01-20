@@ -1,0 +1,14 @@
+*.vsidx
+*.lock
+VotingWebApp/Migrations/*
+*.exe
+*.cache
+*.editorconfig
+*.json
+*.dll
+*.pdb
+*.props
+*.suo
+*.v2
+*.log
+VotingWebApp\obj\Debug\net6.0\VotingWebApp.csproj.FileListAbsolute.txt

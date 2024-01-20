@@ -186,18 +186,21 @@ public class MainActivity extends AppCompatActivity {
             if(result == null)
                 Log.d("ErrConnect", "result is null");
             try {
-                JSONArray array = result.getJSONArray("$values");
-                DBController.getInstance(getBaseContext()).deleteKandydaci();
-                for(int i = 0; i < array.length(); i++){
+                JSONArray arrayKomitet = result.getJSONObject("Komitet").getJSONArray("$values");
+                JSONArray arrayKandydat = result.getJSONObject("Kandydaci").getJSONArray("$values");
+                DBController.getInstance(getBaseContext()).clearBeforeSychronizing();
+                for(int i = 0; i < arrayKandydat.length(); i++){
                     KandydatModel model = new KandydatModel();
-                    model.Name = array.getJSONObject(i).getString("Imie");
-                    model.Surname = array.getJSONObject(i).getString("Nazwisko");
-                    model.Img = R.drawable.ic_launcher_background;
-                    model.Desc = array.getJSONObject(i).getString("Opis");
-                    model.Nr_listy = array.getJSONObject(i).getInt("NrListy");
-                    model.Okreg = array.getJSONObject(i).getString("NazwaOkregu");
-                    model.czySenat = array.getJSONObject(i).getBoolean("czySenat");
-                    model.Guid  = array.getJSONObject(i).getString("ID");
+                    model.ID = arrayKandydat.getJSONObject(i).getString("ID");
+                    model.Imie = arrayKandydat.getJSONObject(i).getString("Imie");
+                    model.Nazwisko = arrayKandydat.getJSONObject(i).getString("Nazwisko");
+                    model.Zdjecie = R.drawable.cat;
+                    model.Opis = arrayKandydat.getJSONObject(i).getString("Opis");
+                    model.czySenat = arrayKandydat.getJSONObject(i).getBoolean("czySenat");
+                    model.Nr_listy = arrayKandydat.getJSONObject(i).getInt("NrListy");
+                    model.IDKomitetu = arrayKandydat.getJSONObject(i).getString("IDKomitetu");
+                    model.IDokreg = arrayKandydat.getJSONObject(i).getString("IDokregu");
+                    model.Okreg = arrayKandydat.getJSONObject(i).getString("NazwaOkregu");
                     DBController.getInstance(getBaseContext()).insertKandydat(model);
                 }
 

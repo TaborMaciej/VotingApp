@@ -30,10 +30,10 @@ public class AdapterKandydat extends RecyclerView.Adapter<MyViewHolderKandydat>{
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderKandydat holder, int position) {
-        holder.descriptionView.setText(items.get(position).Desc);
-        holder.nameView.setText(items.get(position).Name);
-        holder.surnameView.setText(items.get(position).Surname);
-        holder.imageView1.setImageResource(items.get(position).Img);
+        holder.descriptionView.setText(items.get(position).Opis);
+        holder.nameView.setText(items.get(position).Imie);
+        holder.surnameView.setText(items.get(position).Nazwisko);
+        holder.imageView1.setImageResource(items.get(position).Zdjecie);
     }
 
     @Override

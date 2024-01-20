@@ -93,21 +93,33 @@ namespace VotingWebApp.Controllers
         [HttpGet("getKandydaci")]
         public IActionResult GetKandydatJson()
         {
-            var records = _context.Kandydaci
-            .Include(p => p.Komitet)
-            .Include(p => p.Okreg)
-            .Select(k => new KandydatDto
+            var result = new
             {
-                ID = k.ID,
-                Imie = k.Imie,
-                Nazwisko = k.Nazwisko,
-                Zdjecie = k.Zdjecie,
-                Opis = k.Opis,
-                NrListy = k.Komitet.NrListy,
-                NazwaOkregu = k.Okreg.Nazwa,
-                czySenat = k.czySenat
-            })
-            .ToList();
+                Komitet = _context.Komitety.Select(k => new
+                {
+                    ID = k.ID,
+                    Nazwa = k.Nazwa,
+                    LogoNazwa = k.LogoNazwa,
+                    NrListy = k.NrListy
+                }).ToList(),
+                Kandydaci = _context.Kandydaci
+                    .Include(p => p.Komitet)
+                    .Include(p => p.Okreg)
+                    .Select(k => new KandydatDto
+                    {
+                        ID = k.ID,
+                        Imie = k.Imie,
+                        Nazwisko = k.Nazwisko,
+                        Zdjecie = k.Zdjecie,
+                        Opis = k.Opis,
+                        czySenat = k.czySenat,
+                        NrListy = k.Komitet.NrListy,
+                        IDKomitetu = k.Komitet.ID,
+                        IDokreg = k.Okreg.ID,
+                        NazwaOkregu = k.Okreg.Nazwa
+                    })
+                    .ToList()
+            };
 
             var jsonOptions = new JsonSerializerOptions
             {
@@ -115,7 +127,7 @@ namespace VotingWebApp.Controllers
                 MaxDepth = 256 // Set the maximum depth as needed
             };
 
-            var jsonData = Json(records, jsonOptions);
+            var jsonData = Json(result, jsonOptions);
 
             return jsonData;
         }
