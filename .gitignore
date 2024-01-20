@@ -12,3 +12,4 @@
 *.log
 VotingWebApp\obj\Debug\net6.0\VotingWebApp.csproj.FileListAbsolute.txt
 VotingWebApp/Migrations/*
+*.dll
