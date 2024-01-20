@@ -12,6 +12,7 @@ namespace VotingWebApp.Models
         public string Zdjecie { get; set; } = string.Empty;
         public string Opis { get; set; } = string.Empty;
         public Boolean czySenat { get; set; } = false;
+        public int nrListy { get; set; }
 
         [ForeignKey("Komitet")]
         public Guid IDKomitetu { get; set; }

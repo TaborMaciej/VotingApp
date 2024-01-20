@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asasy\\Studia\\Mobilki\\Lista_koncowa_VotingSystem\\VotingWebApp\\VotingWebApp.csproj": {}
+    "C:\\Users\\asasy\\Studia\\Mobilki\\VotingApp_listakoncowa\\VotingWebApp\\VotingWebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asasy\\Studia\\Mobilki\\Lista_koncowa_VotingSystem\\VotingWebApp\\VotingWebApp.csproj": {
+    "C:\\Users\\asasy\\Studia\\Mobilki\\VotingApp_listakoncowa\\VotingWebApp\\VotingWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asasy\\Studia\\Mobilki\\Lista_koncowa_VotingSystem\\VotingWebApp\\VotingWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\asasy\\Studia\\Mobilki\\VotingApp_listakoncowa\\VotingWebApp\\VotingWebApp.csproj",
         "projectName": "VotingWebApp",
-        "projectPath": "C:\\Users\\asasy\\Studia\\Mobilki\\Lista_koncowa_VotingSystem\\VotingWebApp\\VotingWebApp.csproj",
+        "projectPath": "C:\\Users\\asasy\\Studia\\Mobilki\\VotingApp_listakoncowa\\VotingWebApp\\VotingWebApp.csproj",
         "packagesPath": "C:\\Users\\asasy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asasy\\Studia\\Mobilki\\Lista_koncowa_VotingSystem\\VotingWebApp\\obj\\",
+        "outputPath": "C:\\Users\\asasy\\Studia\\Mobilki\\VotingApp_listakoncowa\\VotingWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\asasy\\AppData\\Roaming\\NuGet\\NuGet.Config",

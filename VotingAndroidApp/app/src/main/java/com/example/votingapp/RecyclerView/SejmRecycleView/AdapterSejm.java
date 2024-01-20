@@ -45,10 +45,10 @@ public class AdapterSejm extends RecyclerView.Adapter<MyViewHolderSejm> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderSejm holder, int position) {
-        Log.d("KomitetName" + position, komitetList.get(position).Name);
-        holder.nameView.setText(komitetList.get(position).Name);
-        holder.imageView1.setImageResource(komitetList.get(position).Img);
-        holder.imageView2.setImageResource(komitetList.get(position).Img);
+        Log.d("KomitetName" + position, komitetList.get(position).Nazwa);
+        holder.nameView.setText(komitetList.get(position).Nazwa);
+        holder.imageView1.setImageResource(komitetList.get(position).LogoNazwa);
+        holder.imageView2.setImageResource(komitetList.get(position).LogoNazwa);
     }
 
     @Override

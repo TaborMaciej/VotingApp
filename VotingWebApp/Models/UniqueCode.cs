@@ -11,10 +11,10 @@ namespace VotingWebApp.Models
         public string Code { get; set; }
         public Boolean wasUsed { get; set; } = false;
         [ForeignKey("Kandydat")]
-        public Guid? IDKandydata { get; set; }
-        public virtual Kandydat? Kandydat { get; set; }
-        [ForeignKey("Komitet")]
-        public Guid? IDKomitetu { get; set; }
-        public virtual Komitet? Komitet { get; set; }
+        public Guid? IDKandydataSejmu { get; set; }
+        public virtual Kandydat? KandydatSejm { get; set; }
+        [ForeignKey("Kandydat")]
+        public Guid? IDKandydataSenatu { get; set; }
+        public virtual Komitet? KomitetSenat { get; set; }
     }
 }
