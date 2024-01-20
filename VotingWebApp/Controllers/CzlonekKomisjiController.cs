@@ -151,14 +151,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.CzlonkowieKomisji.Remove(czlonekKomisji);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CzlonekKomisjiExists(Guid? id)
         {
-            return (_context.CzlonkowieKomisji?.Any(e => e.ID == id)).GetValueOrDefault();
+          return (_context.CzlonkowieKomisji?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
