@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VotingWebApp.Context;
 using VotingWebApp.Models;
@@ -23,9 +17,9 @@ namespace VotingWebApp.Controllers
         // GET: Obwods
         public async Task<IActionResult> Index()
         {
-              return _context.Obwody != null ? 
-                          View(await _context.Obwody.ToListAsync()) :
-                          Problem("Entity set 'VotingContext.Obwody'  is null.");
+            return _context.Obwody != null ?
+                        View(await _context.Obwody.ToListAsync()) :
+                        Problem("Entity set 'VotingContext.Obwody'  is null.");
         }
 
         // GET: Obwods/Details/5
@@ -151,14 +145,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.Obwody.Remove(obwod);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ObwodExists(Guid? id)
         {
-          return (_context.Obwody?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.Obwody?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

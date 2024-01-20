@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VotingWebApp.Context;
 using VotingWebApp.Models;
@@ -23,9 +17,9 @@ namespace VotingWebApp.Controllers
         // GET: Okreg
         public async Task<IActionResult> Index()
         {
-              return _context.Okregi != null ? 
-                          View(await _context.Okregi.ToListAsync()) :
-                          Problem("Entity set 'VotingContext.Okregi'  is null.");
+            return _context.Okregi != null ?
+                        View(await _context.Okregi.ToListAsync()) :
+                        Problem("Entity set 'VotingContext.Okregi'  is null.");
         }
 
         // GET: Okreg/Details/5
@@ -151,14 +145,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.Okregi.Remove(okreg);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool OkregExists(Guid? id)
         {
-          return (_context.Okregi?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.Okregi?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
