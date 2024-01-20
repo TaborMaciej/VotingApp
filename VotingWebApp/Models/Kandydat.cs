@@ -13,6 +13,7 @@ namespace VotingWebApp.Models
         public string Opis { get; set; } = string.Empty;
         public Boolean czySenat { get; set; } = false;
 
+
         [ForeignKey("Komitet")]
         public Guid IDKomitetu { get; set; }
         public virtual Komitet? Komitet { get; set; }
