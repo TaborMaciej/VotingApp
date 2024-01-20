@@ -1,0 +1,7 @@
+
+*.vsidx
+*.lock
+VotingWebApp/Migrations/20240120113628_updateKandydat.Designer.cs
+VotingWebApp/Migrations/20240120113628_updateKandydat.cs
+VotingWebApp/Migrations/20240120113414_new db.Designer.cs
+VotingWebApp/Migrations/20240120113414_new db.cs
