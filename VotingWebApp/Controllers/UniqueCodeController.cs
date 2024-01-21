@@ -132,5 +132,7 @@ namespace VotingWebApp.Controllers
 
             return jsonData;
         }
+
+
     }
 }

@@ -1,0 +1,14 @@
+﻿@model VotingWebApp.Models.WynikiViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Wyniki głosowania:</h1>
+<br />
+
+<!-- Other content of the Index view goes here -->
+
+<form asp-controller="WynikiGlosowania" asp-action="Wyniki" method="get">
+    <button type="submit" class="btn btn-primary">Przejdź do wyników</button>
+</form>
