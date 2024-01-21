@@ -39,7 +39,7 @@
 
 <br />
 
-<h2>Wyniki Partii:</h2>
+<h2>Wyniki wyborów do sejmu:</h2>
 @if (Model.partySejmResults != null && Model.partySejmResults.Any())
 {
     <table>
@@ -70,12 +70,12 @@
 }
 else
 {
-    <p>Brak wyników dla Partii</p>
+    <p>Brak wyników wyborów do sejmu</p>
 }
 
 <br />
 
-<h2>Wyniki Senatu:</h2>
+<h2>Wyniki wyboru do senatu:</h2>
 @if (Model.partySenatResults != null && Model.partySenatResults.Any())
 {
     <table>
@@ -106,5 +106,5 @@ else
 }
 else
 {
-    <p>Brak wyników dla Partii w Senacie</p>
+    <p>Brak wyników do senatu</p>
 }
