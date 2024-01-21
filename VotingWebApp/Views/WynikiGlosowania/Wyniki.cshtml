@@ -1,0 +1,110 @@
+﻿@model VotingWebApp.Models.WynikiViewModel
+
+@{
+    ViewData["Title"] = "Wyniki";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    p {
+        color: #888;
+    }
+</style>
+
+<h1>Wyniki głosowania</h1>
+
+<br />
+
+<h2>Wyniki Partii:</h2>
+@if (Model.partySejmResults != null && Model.partySejmResults.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Partia</th>
+                <th>Liczba głosów</th>
+                <th>Procent głosów</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var partyResult in Model.partySejmResults.OrderByDescending(p => p.Count))
+            {
+                <tr>
+                    <td>@partyResult.Party?.Nazwa</td>
+                    <td>@partyResult.Count</td>
+                    <td>
+                        @{
+                            double totalVotes = Model.partySejmResults.Sum(p => p.Count);
+                            double percentage = totalVotes > 0 ? (partyResult.Count / totalVotes) * 100 : 0.0;
+                            @percentage.ToString("0.##")
+                        }%
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Brak wyników dla Partii</p>
+}
+
+<br />
+
+<h2>Wyniki Senatu:</h2>
+@if (Model.partySenatResults != null && Model.partySenatResults.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Partia</th>
+                <th>Liczba głosów</th>
+                <th>Procent głosów</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var partyResult in Model.partySenatResults.OrderByDescending(p => p.Count))
+            {
+                <tr>
+                    <td>@partyResult.Party?.Nazwa</td>
+                    <td>@partyResult.Count</td>
+                    <td>
+                        @{
+                            double totalVotes = Model.partySenatResults.Sum(p => p.Count);
+                            double percentage = totalVotes > 0 ? (partyResult.Count / totalVotes) * 100 : 0.0;
+                            @percentage.ToString("0.##")
+                        }%
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Brak wyników dla Partii w Senacie</p>
+}

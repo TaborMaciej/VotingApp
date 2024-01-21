@@ -21,6 +21,7 @@ namespace VotingWebApp.Controllers
         public async Task<IActionResult> Index()
         {
             var votingContext = _context.Kandydaci.Include(k => k.Komitet).Include(k => k.Okreg);
+
             return View(await votingContext.ToListAsync());
         }
 
@@ -47,8 +48,8 @@ namespace VotingWebApp.Controllers
         // GET: Kandydats/Create
         public IActionResult Create()
         {
-            ViewData["IDKomitetu"] = new SelectList(_context.Komitety, "ID", "ID");
-            ViewData["IDOkregu"] = new SelectList(_context.Okregi, "ID", "ID");
+            ViewData["IDKomitetu"] = new SelectList(_context.Komitety.Select(s => new { ID = s.ID, Name = s.Nazwa }), "ID", "Name");
+            ViewData["IDOkregu"] = new SelectList(_context.Okregi.Select(s => new { ID = s.ID, Name = s.Nazwa }), "ID", "Name");
             return View();
         }
 
@@ -83,8 +84,8 @@ namespace VotingWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDKomitetu"] = new SelectList(_context.Komitety, "ID", "ID", kandydat.IDKomitetu);
-            ViewData["IDOkregu"] = new SelectList(_context.Okregi, "ID", "ID", kandydat.IDOkregu);
+            ViewData["IDKomitetu"] = new SelectList(_context.Komitety.Select(s => new { ID = s.ID, Name = s.Nazwa }), "ID", "Name");
+            ViewData["IDOkregu"] = new SelectList(_context.Okregi.Select(s => new { ID = s.ID, Name = s.Nazwa }), "ID", "Name");
             return View(kandydat);
         }
 
@@ -120,8 +121,8 @@ namespace VotingWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDKomitetu"] = new SelectList(_context.Komitety, "ID", "ID", kandydat.IDKomitetu);
-            ViewData["IDOkregu"] = new SelectList(_context.Okregi, "ID", "ID", kandydat.IDOkregu);
+            ViewData["IDKomitetu"] = new SelectList(_context.Komitety.Select(s => new { ID = s.ID, Name = s.Nazwa }), "ID", "Name");
+            ViewData["IDOkregu"] = new SelectList(_context.Okregi.Select(s => new { ID = s.ID, Name = s.Nazwa }), "ID", "Name");
             return View(kandydat);
         }
 

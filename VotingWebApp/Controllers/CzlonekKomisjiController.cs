@@ -44,7 +44,7 @@ namespace VotingWebApp.Controllers
         // GET: CzlonekKomisji/Create
         public IActionResult Create()
         {
-            ViewData["IDObwod"] = new SelectList(_context.Obwody.Select(s => new { ID = s.ID, Name= s.NazwaObwodu}), "ID", "Name");
+            ViewData["IDObwod"] = new SelectList(_context.Obwody.Select(s => new { ID = s.ID, Name = s.NazwaObwodu }), "ID", "Name");
             return View();
         }
 
@@ -151,14 +151,14 @@ namespace VotingWebApp.Controllers
             {
                 _context.CzlonkowieKomisji.Remove(czlonekKomisji);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CzlonekKomisjiExists(Guid? id)
         {
-          return (_context.CzlonkowieKomisji?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.CzlonkowieKomisji?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
