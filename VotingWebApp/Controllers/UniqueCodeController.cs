@@ -64,9 +64,12 @@ namespace VotingWebApp.Controllers
                     return BadRequest("Błędne dane");
 
                 if (!CheckIfCodeExists(code_))
-                    return Ok(new { exists = false });
+                    return Ok(new { exists = false, used = false });
 
-                return Ok(new { exists = true });
+                var codeObj = _context.UniqueCodes.FirstOrDefault(entity => entity.Code == code_);
+                if(codeObj != null)
+                    return Ok(new { exists = true , used = codeObj.wasUsed});
+                return Ok(new { exists = false, used = false });
             }
             catch (Exception ex)
             {

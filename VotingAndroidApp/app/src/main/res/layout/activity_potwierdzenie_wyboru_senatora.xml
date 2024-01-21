@@ -26,29 +26,18 @@
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque condimentum cursus tortor viverra dapibus. Maecenas molestie nunc eu eros cursus condimentum"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/SurnameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/NameTextView" />
 
     <TextView
         android:id="@+id/NameTextView"
-        android:layout_width="230dp"
+        android:layout_width="460dp"
         android:layout_height="60dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="130dp"
-        android:text=" imie"
-        android:textAlignment="textEnd"
+        android:text="Imie Nazwisko"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/SurnameTextView"
-        android:layout_width="230dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="130dp"
-        android:text=" nazwisko"
-        android:textAlignment="textStart"
-        android:textSize="34sp"
-        app:layout_constraintStart_toEndOf="@+id/NameTextView"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <ImageView
@@ -62,23 +51,23 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/PowrotKandydaciSenatuBtn"
+        android:id="@+id/PotwierdzenieSenatoraBtn"
         android:layout_width="367dp"
         android:layout_height="99dp"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="200dp"
-        android:text="Wróć do listy kandydatów"
+        android:text="Potwierdzam wybór kandydata na senatora RP"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DescriptionTextView" />
 
     <Button
-        android:id="@+id/PotwierdzenieSenatoraBtn"
+        android:id="@+id/PowrotKandydaciSenatuBtn"
         android:layout_width="349dp"
         android:layout_height="99dp"
         android:layout_marginStart="200dp"
         android:layout_marginTop="65dp"
-        android:text="Potwierdzam wybór kandydata na senatora RP"
+        android:text="Wróć do listy kandydatów"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

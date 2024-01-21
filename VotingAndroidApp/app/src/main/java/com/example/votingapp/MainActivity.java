@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.votingapp.DBController.DBController;
+import com.example.votingapp.Models.CodeModel;
 import com.example.votingapp.Models.KandydatModel;
 import com.example.votingapp.Models.KomitetModel;
 import com.example.votingapp.Voter.Sejm.WyborListyWyborczej;
@@ -45,10 +46,17 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button) findViewById(R.id.button);
         codeInput = (EditText) findViewById(R.id.editTextCode);
         errText = (TextView) findViewById(R.id.textViewErr);
-        btn.setOnClickListener(v ->{
-            if(codeInput.getText().toString().isEmpty()){
+        btn.setOnClickListener(v -> {
+            if (codeInput.getText().toString().isEmpty()) {
                 errText.setText("Nie podano kodu");
                 return;
+            }
+            ArrayList<CodeModel> list = DBController.getInstance(this).getSingleCode(codeInput.getText().toString());
+            if (list.size() > 0){
+                if (list.get(0).wasUsed) {
+                    errText.setText("KOd został już wykorzystany");
+                    return;
+                }
             }
 
             new CheckCodeTask().execute();
@@ -56,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    class CheckCodeTask extends AsyncTask<String, Void, Boolean> {
+    class CheckCodeTask extends AsyncTask<String, Void, JSONObject> {
         @Override
-        protected Boolean doInBackground(String... params){
+        protected JSONObject doInBackground(String... params){
             try {
                 URL url = new URL("https://10.0.2.2:7298/api/UniqueCode/checkCode");
                 setUpCertificate();
@@ -92,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                 JSONObject jsonObject = new JSONObject(response.toString());
                 connection.disconnect();
-                return jsonObject.getBoolean("exists");
+                return jsonObject;
 
             }catch(IOException | JSONException e){
                 Log.d("Error", e.toString());
@@ -100,18 +108,27 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        protected void onPostExecute(Boolean result){
+        protected void onPostExecute(JSONObject result){
             if(result == null) {
                 Log.d("ErrConnect", "result is null");
                 return;
             }
 
-            if(!result) {
-                errText.setText("Podano błędny kod!");
+            try {
+                if(result.getBoolean("used") || !result.getBoolean("exists")) {
+                    errText.setText("Podano błędny kod!");
+                    return;
+                }
+            } catch (JSONException e) {
+                Log.d("ErrorJson", e.toString());
                 return;
             }
 
             String userCode = codeInput.getText().toString();
+            CodeModel codeModel = new CodeModel();
+            codeModel.Code = userCode;
+            codeModel.wasUsed = false;
+            DBController.getInstance(getBaseContext()).insertCode(codeModel);
             Bundle bundle = new Bundle();
             bundle.putString("Code", userCode);
             Intent intent = new Intent(MainActivity.this, WyborListyWyborczej.class);

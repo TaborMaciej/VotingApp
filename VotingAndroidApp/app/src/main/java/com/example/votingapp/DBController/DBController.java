@@ -114,6 +114,56 @@ public class DBController extends SQLiteOpenHelper {
 
         return retString;
     }
+    public ArrayList<CodeModel>  getSingleCode(String code) {
+        Cursor cursor = dbReference.query(TABLE_NAME_CODE, null,
+                "Code=?", new String[]{code}, null, null, null);
+
+        ArrayList<CodeModel> lista = new ArrayList<CodeModel>();
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                CodeModel model = new CodeModel();
+                int index;
+
+                index = cursor.getColumnIndex(COLS_NAME_CODE[0]);
+                if (index != -1) model.ID = cursor.getInt(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_CODE[1]);
+                if (index != -1) model.Code = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_CODE[2]);
+                if (index != -1) model.wasUsed = (cursor.getInt(index) != 0);
+
+                index = cursor.getColumnIndex(COLS_NAME_CODE[3]);
+                if (index != -1) model.IDKandydatSejmu = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_CODE[4]);
+                if (index != -1) model.IDKandydatSenatu = cursor.getString(index);
+
+                lista.add(model);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        return lista;
+    }
+    public void changeCodeSejm(String code, String guidSejm){
+        ArrayList<CodeModel> list = getSingleCode(code);
+        if(list.size() == 0) return;
+
+        ContentValues x = new ContentValues();
+        x.put(COLS_NAME_CODE[3], guidSejm);
+        dbReference.update(TABLE_NAME_CODE, x, "Code=?", new String[]{code});
+    }
+    public void changeCodeSenat(String code, String guidSenat){
+        ArrayList<CodeModel> list = getSingleCode(code);
+        if(list.size() == 0) return;
+
+        ContentValues x = new ContentValues();
+        x.put(COLS_NAME_CODE[4], guidSenat);
+        dbReference.update(TABLE_NAME_CODE, x, "Code=?", new String[]{code});
+    }
+
     public long insertCode(CodeModel data){
         ContentValues x = new ContentValues();
         x.put(COLS_NAME_CODE[1], data.Code);
@@ -160,7 +210,7 @@ public class DBController extends SQLiteOpenHelper {
         x.put(COLS_NAME_CODE[1], code);
         x.put(COLS_NAME_CODE[2], 1);
 
-        dbReference.update(TABLE_NAME_CODE, x, "Name=?", new String[]{ code });
+        dbReference.update(TABLE_NAME_CODE, x, "Code=?", new String[]{ code });
     }
     public ArrayList<CodeModel> getCodes() {
         Cursor cursor = dbReference.query(TABLE_NAME_CODE, null, null, null,
@@ -236,9 +286,57 @@ public class DBController extends SQLiteOpenHelper {
         }
         return lista;
     }
-    public ArrayList<KandydatModel> getKandydaciSejm(String ID_partii){
+
+    public ArrayList<KandydatModel> getKandydaciSenat(String ID_partii){
         Cursor cursor = dbReference.query(TABLE_NAME_KANDYDAT, null,
                 "IDKomitetu=? and czy_senat=?", new String[]{ID_partii, "1"}, null, null, null);
+
+        ArrayList<KandydatModel> lista = new ArrayList<>();
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                KandydatModel model = new KandydatModel();
+                int index;
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[0]);
+                if (index != -1) model.ID = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[1]);
+                if (index != -1) model.Imie = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[2]);
+                if (index != -1) model.Nazwisko = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[3]);
+                if (index != -1) model.Zdjecie = cursor.getInt(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[4]);
+                if (index != -1) model.Opis  = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[5]);
+                if (index != -1) model.czySenat = (cursor.getInt(index) != 0);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[6]);
+                if (index != -1) model.Nr_listy = cursor.getInt(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[7]);
+                if (index != -1) model.IDKomitetu = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[8]);
+                if (index != -1) model.IDokreg = cursor.getString(index);
+
+                index = cursor.getColumnIndex(COLS_NAME_KANDYDAT[9]);
+                if (index != -1) model.Okreg = cursor.getString(index);
+
+                lista.add(model);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+        return lista;
+    }
+    public ArrayList<KandydatModel> getKandydaciSejm(String ID_partii){
+        Cursor cursor = dbReference.query(TABLE_NAME_KANDYDAT, null,
+                "IDKomitetu=? and czy_senat=?", new String[]{ID_partii, "0"}, null, null, null);
 
         ArrayList<KandydatModel> lista = new ArrayList<>();
         if (cursor != null && cursor.moveToFirst()) {
