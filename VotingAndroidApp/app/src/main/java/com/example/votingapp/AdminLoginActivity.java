@@ -59,11 +59,11 @@ public class AdminLoginActivity extends AppCompatActivity {
                 return;
             }
 
-            new CheckCodeTask().execute();
+            new CheckLoginTask().execute();
         });
     }
 
-    class CheckCodeTask extends AsyncTask<String, Void, Boolean> {
+    class CheckLoginTask extends AsyncTask<String, Void, Boolean> {
         @Override
         protected Boolean doInBackground(String... params){
             try {

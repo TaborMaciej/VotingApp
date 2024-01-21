@@ -86,21 +86,26 @@ namespace VotingWebApp.Controllers
             }
         }
 
-        [HttpPost("usedCode")]
-        public async Task<IActionResult> MarkCodeAsUsed()
+        [HttpPost("postVote")]
+        public async Task<IActionResult> PostVote([FromBody] JsonElement data)
         {
-            var code_ = Request.Form.Keys.ElementAt(0);
+            var code_ = data.GetProperty("code").GetString();
+            var idSejm = data.GetProperty("IDsejm").GetString();
+            var idSenat = data.GetProperty("IDsenat").GetString();
+
             if (string.IsNullOrEmpty(code_))
                 return BadRequest("Błędne dane");
 
             if (!CheckIfCodeExists(code_))
-                return Ok(new { exists = false, used = false });
+                return BadRequest("Kod nie istnieje");
 
             var codeObj = _context.UniqueCodes.FirstOrDefault(entity => entity.Code == code_);
+            codeObj.IDKandydataSejmu = new Guid(idSejm);
+            codeObj.IDKandydataSenatu = new Guid(idSenat);
             codeObj.wasUsed = true;
             var x = _context.Update(codeObj);
             await _context.SaveChangesAsync();
-            return Ok(new { exists = true, used = true });
+            return Ok();
         }
 
         [HttpGet("getKandydaci")]
