@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@using VotingWebApp.VotingManager
 <div class="text-center">
     <h1 class="text-center mb-4">Głosowanie</h1>
     @if (!User.Identity.IsAuthenticated)
@@ -26,17 +26,16 @@
     }
     @if (User.Identity.IsAuthenticated)
     {
-        @Html.ActionLink("Wygeneruj kod", "Index", "UniqueCode", null, new { @class = "btn btn-primary" })
-        <form asp-action="CheckStringExists" asp-controller="UniqueCode" method="post" class="d-flex flex-column gap-2 w-50 m-auto">
-            @Html.AntiForgeryToken()
-
-            <div class="form-group row d-flex justify-content-center">
-                <label class="control-label col-3 text-center fs-2">Kod</label>
-                <input name="code_" class="form-control col-3" />
-            </div>
-            <div class="form-group row d-flex justify-content-center">
-                <input type="submit" value="Przeslij" class="btn btn-primary col-6 fs-3" />
-            </div>
-        </form>
+        @if (!VotingVariable.IsVotingEnabled)
+        {
+            @Html.ActionLink("Rozpocznij glosowanie", "SwitchVote", "Home", null, new { @class = "btn btn-primary" })
+        }
+        else
+        {
+            @Html.ActionLink("Wygeneruj kod", "Index", "UniqueCode", null, new { @class = "btn btn-primary" })
+            <br/>
+            <br/>
+            @Html.ActionLink("Zakoncz glosowanie", "SwitchVote", "Home", null, new { @class = "btn btn-primary" })
+        }
     }
 </div>

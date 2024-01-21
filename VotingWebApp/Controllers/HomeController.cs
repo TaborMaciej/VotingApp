@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Security.Claims;
 using VotingWebApp.Models;
 using VotingWebApp.Context;
+using VotingWebApp.VotingManager;
 
 namespace VotingWebApp.Controllers
 {
@@ -67,6 +68,12 @@ namespace VotingWebApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult SwitchVote()
+        {
+            VotingVariable.IsVotingEnabled = !VotingVariable.IsVotingEnabled;
             return RedirectToAction("Index", "Home");
         }
     }

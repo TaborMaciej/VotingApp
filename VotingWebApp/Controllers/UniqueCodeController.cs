@@ -4,6 +4,11 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using VotingWebApp.Context;
 using VotingWebApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using NuGet.Protocol.Plugins;
+using System.Security.Claims;
+using VotingWebApp.VotingManager;
 
 namespace VotingWebApp.Controllers
 {
@@ -20,6 +25,8 @@ namespace VotingWebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+            if(!VotingVariable.IsVotingEnabled)
+                return RedirectToAction("Index", "Home");
             String randomString = "";
             do
             {
@@ -56,6 +63,8 @@ namespace VotingWebApp.Controllers
         [HttpPost("checkCode")]
         public async Task<IActionResult> CheckStringExists()
         {
+            if (!VotingVariable.IsVotingEnabled)
+                return BadRequest("Glosowanie zakonczone");
             try
             {
                 var code_ = Request.Form.Keys.ElementAt(0);
@@ -64,11 +73,11 @@ namespace VotingWebApp.Controllers
                     return BadRequest("Błędne dane");
 
                 if (!CheckIfCodeExists(code_))
-                    return Ok(new { exists = false, used = false });
+                    return BadRequest("Kod nie istnieje");
 
                 var codeObj = _context.UniqueCodes.FirstOrDefault(entity => entity.Code == code_);
-                if(codeObj != null)
-                    return Ok(new { exists = true , used = codeObj.wasUsed});
+                if (codeObj != null)
+                    return Ok(new { exists = true, used = codeObj.wasUsed });
                 return Ok(new { exists = false, used = false });
             }
             catch (Exception ex)
@@ -78,8 +87,9 @@ namespace VotingWebApp.Controllers
         }
 
         [HttpPost("usedCode")]
-        public async Task<IActionResult> MarkCodeAsUsed(string code_)
+        public async Task<IActionResult> MarkCodeAsUsed()
         {
+            var code_ = Request.Form.Keys.ElementAt(0);
             if (string.IsNullOrEmpty(code_))
                 return BadRequest("Błędne dane");
 
@@ -99,12 +109,12 @@ namespace VotingWebApp.Controllers
             var result = new
             {
                 Komitet = _context.Komitety.Select(k => new
-                    {
-                        ID = k.ID,
-                        Nazwa = k.Nazwa,
-                        LogoNazwa = k.LogoNazwa,
-                        NrListy = k.NrListy
-                    }).ToList(),
+                {
+                    ID = k.ID,
+                    Nazwa = k.Nazwa,
+                    LogoNazwa = k.LogoNazwa,
+                    NrListy = k.NrListy
+                }).ToList(),
 
                 Kandydaci = _context.Kandydaci
                     .Include(p => p.Komitet)
@@ -134,6 +144,38 @@ namespace VotingWebApp.Controllers
             var jsonData = Json(result, jsonOptions);
 
             return jsonData;
+        }
+
+        [HttpPost("loginUser")]
+        public IActionResult tryLoginUser([FromBody] JsonElement data)
+        {
+            try
+            {
+                var login = data.GetProperty("login").GetString();
+                var password = data.GetProperty("password").GetString();
+
+                var adm = _context.CzlonkowieKomisji.FirstOrDefault(p => p.Login == login);
+
+                if (adm != null)
+                {
+                    var haslo = _context.CzlonkowieKomisji.FirstOrDefault(p => p.Haslo == password);
+                    if (haslo != null)
+
+                        return Ok(new { correct = true });
+                }
+                return Ok(new { correct = false });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpGet("stopVote")]
+        public IActionResult StopTheVote()
+        {
+            VotingVariable.IsVotingEnabled = false;
+            return Ok();
         }
     }
 }
